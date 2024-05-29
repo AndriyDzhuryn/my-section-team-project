@@ -1,3 +1,53 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  font-style: normal;
+  color: rgba(252, 249, 249, 0.4);
+  background-color: #1c2225;
+}
+
+/* Reset styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -8,49 +58,78 @@ img {
   display: block;
 }
 
-.collection {
-  background: darkblue;
-}
-
 .container {
   max-width: 375px;
-  padding: 40px 20px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
-.container-collection {
-  background-image: url(../image/collection/vyshyvka.png);
-  background-repeat: no-repeat;
-  background-size: 199px 177px;
-  background-position: top 338px left -127px;
+.section {
+  padding: 40px 0;
 }
 
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+  .section {
+    padding: 50px 0;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 50px;
+  }
+  .section {
+    padding: 75px 0;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 100px;
+  }
+}
+
+.collection {
+  background-image: url(../images/background/yellow-ornament@1x.png);
+  background-repeat: no-repeat;
+  background-size: 199px 177px;
+  background-position: top 338px left;
+}
 .title-our-collection {
-  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 1.38;
   letter-spacing: -0.03em;
   color: #fcf9f9;
   text-align: center;
-  margin-top: 0;
   margin-bottom: 40px;
 }
-
 .list-cards-collection {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
 }
-
-.container-image-cards-collection {
+.item-cards-collection {
   position: relative;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.list-cards-collection .item-cards-collection:hover,
+.list-cards-collection .item-cards-collection:focus {
+  transform: scale(0.95);
+}
+.container-image-cards-collection {
   display: flex;
   justify-content: center;
   overflow: hidden;
   margin-bottom: 18px;
+  border-radius: 4px;
 }
-
 .link-item-cards-collection {
   position: absolute;
   top: 0;
@@ -58,116 +137,101 @@ img {
   width: 100%;
   height: 100%;
 }
-
 .title-cards-collection {
-  font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 1;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #fcf9f9;
-  margin-top: 0;
   margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .description-cards-collection {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
   font-size: 14px;
   line-height: 1;
   letter-spacing: 0.05em;
-  color: rgba(252, 249, 249, 0.4);
   margin-top: 0;
   margin-bottom: 0;
 }
 
+@media (min-resolution: 192dpi) {
+  .collection {
+    background-image: url(../images/background/yellow-ornament@2x.png);
+  }
+}
+
 /*  ==================== ADAPTIVE 768px ====================  */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding: 50px 32px;
-  }
-
-  .container-collection {
+  .collection {
     background-size: 338px 300px;
-    background-position: top 271px left -224px;
+    background-position: top 271px left;
   }
-
   .title-our-collection {
     font-size: 44px;
     line-height: 1.45;
   }
-
   .list-cards-collection {
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 20px;
     column-gap: 20px;
   }
-
   .item-cards-collection {
     max-width: 342px;
   }
-
-  .container-image-cards-collection {
-    overflow: visible;
-  }
-
   .title-cards-collection {
     font-size: 18px;
   }
-
   .description-cards-collection {
     font-size: 18px;
   }
 }
 
 /*  ==================== ADAPTIVE 1280px ====================  */
+@media screen and (max-width: 1279px) {
+  .container-swiper-collection {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-    padding: 75px 50px;
-  }
-
   .container-collection {
-    background-position: top 296px left -169px;
+    display: none;
   }
-
-  .list-cards-collection {
-    row-gap: 40px;
+  .collection {
+    background-position: top 296px left;
   }
-
-  .item-cards-collection {
-    max-width: 380px;
+  .item-swiper-collection {
+    position: relative;
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .list-swiper-collection .item-swiper-collection:hover,
+  .list-swiper-collection .item-swiper-collection:focus {
+    transform: scale(0.95);
+  }
+  .item-swiper-collection:not(:last-child) {
+    margin-bottom: 40px;
   }
 }
 
 /*  ==================== ADAPTIVE 1440px ====================  */
 @media screen and (max-width: 1439px) {
   .container-swiper-collection {
-    display: none;
+    background-image: none;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .container-collection {
-    display: none;
+  .collection {
+    background-image: none;
   }
-
   .container-swiper-collection {
-    background-image: url(../image/collection/vyshyvka.png);
+    background-image: url(../images/background/yellow-ornament@1x.png);
     background-repeat: no-repeat;
     background-size: 338px 300px;
-    background-position: top 306px left -169px;
-  }
-
-  .container {
-    max-width: 1440px;
-    padding: 75px 100px;
-  }
-
-  .item-swiper-collection:not(:last-child) {
-    margin-bottom: 40px;
+    background-position: top 231px left;
   }
 }
